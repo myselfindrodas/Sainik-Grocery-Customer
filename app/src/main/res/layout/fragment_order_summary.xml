@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.OrderSummaryFragment">
+
+
+        <include
+            android:id="@+id/topnav"
+            layout="@layout/topnavbar"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnCheckout"
+            app:layout_constraintTop_toBottomOf="@+id/topnav">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_70sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:cardElevation="0dp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/cvAddress"
+                android:layout_marginTop="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/grey_border_rounded">
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_weight="0.4"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:src="@drawable/icon_truck"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Deliver to"
+                            android:textSize="@dimen/_10ssp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins_medium" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Kolkata, 700029"
+                            android:id="@+id/tvAddress"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/_10ssp"
+                            android:fontFamily="@font/poppins_medium" />
+
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnAddressChange"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:background="@drawable/rounded_orange_border"
+                        android:text="Change"
+
+                        android:textAllCaps="false"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_weight="0.3"
+                        android:textColor="@color/orange"
+                        android:fontFamily="@font/poppins_medium"/>
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <!--<androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProductList"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/cvAddress"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                tools:listitem="@layout/order_details_item"
+                tools:itemCount="5" />-->
+
+            <!--<androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGo"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_37sdp"
+                android:background="@drawable/rounded_blue_bg_btn"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Place order"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_10ssp" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:id="@+id/clPriceDetails"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                app:layout_constraintTop_toBottomOf="@+id/cvAddress">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/tvPriceTxt"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center_vertical"
+                    android:text="Price Details"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="Price (3 Items)"
+                    android:id="@+id/tvItemQtyTxt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPriceTxt"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/_9ssp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="₹ 350"
+                    android:id="@+id/tvPrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvItemQtyTxt"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvItemQtyTxt"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/_9ssp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="Discount"
+                    android:id="@+id/tvDiscountTxt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvItemQtyTxt"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/_9ssp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="₹ 50"
+                    android:id="@+id/tvDiscount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvDiscountTxt"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDiscountTxt"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/_9ssp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="Delivery Charges"
+                    android:id="@+id/tvDeliveryChargeTxt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDiscountTxt"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/_9ssp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center_vertical"
+                    android:text="₹ 50"
+                    android:id="@+id/tvDeliveryCharge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvDeliveryChargeTxt"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDeliveryChargeTxt"
+                    android:textColor="@color/grey_text"
+                    android:textSize="@dimen/_9ssp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center_vertical"
+                    android:text="Total"
+                    android:id="@+id/tvTotalTxt"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDeliveryChargeTxt"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_13ssp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center_vertical"
+                    android:text="₹ 300"
+                    android:id="@+id/tvTotalPrice"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvTotalTxt"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTotalTxt"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_13ssp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_37sdp"
+            android:background="@drawable/rounded_blue_bg_btn"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Checkout"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_10ssp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
